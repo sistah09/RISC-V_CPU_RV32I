@@ -1,0 +1,429 @@
+
+.temp.file.elf:     file format elf32-littleriscv
+
+SYMBOL TABLE:
+00000000 l    d  .init	00000000 .init
+00000054 l    d  .text	00000000 .text
+02000000 l    d  .data	00000000 .data
+02000000 l    d  .bss	00000000 .bss
+02000000 l    d  .stack	00000000 .stack
+00000000 l    d  .riscv.attributes	00000000 .riscv.attributes
+00000000 l    d  .comment	00000000 .comment
+00000000 l    d  .debug_aranges	00000000 .debug_aranges
+00000000 l    d  .debug_info	00000000 .debug_info
+00000000 l    d  .debug_abbrev	00000000 .debug_abbrev
+00000000 l    d  .debug_line	00000000 .debug_line
+00000000 l    d  .debug_str	00000000 .debug_str
+00000000 l    d  .debug_loc	00000000 .debug_loc
+00000000 l    d  .debug_ranges	00000000 .debug_ranges
+00000000 l    d  .debug_frame	00000000 .debug_frame
+00000000 l    d  .debug_macro	00000000 .debug_macro
+00000000 l    df *ABS*	00000000 tls.c
+00000000 l    df *ABS*	00000000 
+0000026f l       .debug_info	00000000 
+0000026f l       .debug_info	00000000 
+0000026f l       .debug_info	00000000 
+0000026f l       .debug_info	00000000 
+0000026f l       .debug_info	00000000 
+0000026f l       .debug_info	00000000 
+0000026f l       .debug_info	00000000 
+0000026f l       .debug_info	00000000 
+0000026f l       .debug_info	00000000 
+0000026f l       .debug_info	00000000 
+0000026f l       .debug_info	00000000 
+0000026f l       .debug_info	00000000 
+0000026f l       .debug_info	00000000 
+0000026f l       .debug_info	00000000 
+0000026f l       .debug_info	00000000 
+0000026f l       .debug_info	00000000 
+0000026f l       .debug_info	00000000 
+0000026f l       .debug_info	00000000 
+0000026f l       .debug_info	00000000 
+0000026f l       .debug_info	00000000 
+0000026f l       .debug_info	00000000 
+0000026f l       .debug_info	00000000 
+0000026f l       .debug_info	00000000 
+0000026f l       .debug_info	00000000 
+0000026f l       .debug_info	00000000 
+00000000 g       *ABS*	00000000 __data_size
+02000800 g       .data	00000000 __global_pointer$
+02000000 g       .bss	00000000 __tls_base
+00000800 g       *ABS*	00000000 __flash_size
+0000026f  w      .debug_info	00000000 .hidden t1b_path_planner.c.1624a433
+00000040 g       *ABS*	00000000 __stack_size
+00000000 g       *ABS*	00000000 __bss_size
+0000032c g     F .text	00000024 memcpy
+02000000 g       .bss	00000000 __bss_end
+00000000 g       *ABS*	00000000 __tbss_size
+00000324 g     F .text	00000008 _set_tls
+00000000 g     F .init	00000000 _start
+02000000 g       *ABS*	00000000 __ram
+02000000 g       .bss	00000000 __data_end
+0000036c g       .text	00000000 __text_end
+02000000 g       .bss	00000000 __bss_start
+00000350 g     F .text	0000001c memset
+00000054 g     F .text	000002d0 main
+00000100 g       *ABS*	00000000 __ram_size
+02000100 g       .init	00000000 __stack
+00000000 g     F *ABS*	00000000 vfscanf
+00000370 g       *ABS*	00000000 __data_source
+00000000 g       *ABS*	00000000 __flash
+02000000 g       .data	00000000 __data_start
+00000000 g     F *ABS*	00000000 vfprintf
+
+
+
+Disassembly of section .init:
+
+00000000 <_start>:
+   0:	    02000117          	auipc	x2,0x2000
+   4:	    10010113          	addi	x2,x2,256 # 2000100 <__stack>
+   8:	    02000197          	auipc	x3,0x2000
+   c:	    7f818193          	addi	x3,x3,2040 # 2000800 <__global_pointer$>
+  10:	    02000517          	auipc	x10,0x2000
+  14:	    ff050513          	addi	x10,x10,-16 # 2000000 <__bss_end>
+  18:	    37000593          	addi	x11,x0,880
+  1c:	    00000613          	addi	x12,x0,0
+  20:	    30c000ef          	jal	x1,32c <memcpy>
+  24:	    02000517          	auipc	x10,0x2000
+  28:	    fdc50513          	addi	x10,x10,-36 # 2000000 <__bss_end>
+  2c:	    00000593          	addi	x11,x0,0
+  30:	    00000613          	addi	x12,x0,0
+  34:	    31c000ef          	jal	x1,350 <memset>
+  38:	    02000517          	auipc	x10,0x2000
+  3c:	    fc850513          	addi	x10,x10,-56 # 2000000 <__bss_end>
+  40:	    2e4000ef          	jal	x1,324 <_set_tls>
+  44:	    00000513          	addi	x10,x0,0
+  48:	    00000593          	addi	x11,x0,0
+  4c:	    008000ef          	jal	x1,54 <main>
+  50:	/-- 0000006f          	jal	x0,50 <__stack_size+0x10>
+
+Disassembly of section .text:
+
+00000054 <main>:
+     ###         _put_byte('\n');
+     ### 
+     ### */
+     ### 
+     ### // main function
+     ### int main(int argc, char const *argv[]) {
+  54:	                   fd010113          	addi	x2,x2,-48
+  58:	                   02112623          	sw	x1,44(x2)
+  5c:	                   02812423          	sw	x8,40(x2)
+     ###     uint32_t *sptSet = (uint32_t *) 0x02000088;
+     ###     uint8_t *min = (uint8_t *) 0x0200008D;
+     ###     uint8_t *min_index = (uint8_t *) 0x0200008C;
+     ###     uint8_t *parent = (uint8_t *) 0x020000B0;
+     ### 
+     ###     *(graph++) = 0x2;         *(graph++) = 0x20000005;
+  60:	                   00200793          	addi	x15,x0,2
+  64:	                   02000437          	lui	x8,0x2000
+  68:	                   00f42823          	sw	x15,16(x8) # 2000010 <__bss_end+0x10>
+  6c:	                   200007b7          	lui	x15,0x20000
+  70:	                   00578793          	addi	x15,x15,5 # 20000005 <__global_pointer$+0x1dfff805>
+  74:	                   00f42a23          	sw	x15,20(x8)
+     ###     *(graph++) = 0x10A;       *(graph++) = 0x10000014;
+  78:	                   10a00793          	addi	x15,x0,266
+  7c:	                   00f42c23          	sw	x15,24(x8)
+  80:	                   100007b7          	lui	x15,0x10000
+  84:	                   01478793          	addi	x15,x15,20 # 10000014 <__global_pointer$+0xdfff814>
+  88:	                   00f42e23          	sw	x15,28(x8)
+     ###     *(graph++) = 0x68;        *(graph++) = 0x10;
+  8c:	                   06800793          	addi	x15,x0,104
+  90:	                   02f42023          	sw	x15,32(x8)
+  94:	                   01000793          	addi	x15,x0,16
+  98:	                   02f42223          	sw	x15,36(x8)
+     ###     *(graph++) = 0x90;        *(graph++) = 0x140;
+  9c:	                   09000793          	addi	x15,x0,144
+  a0:	                   02f42423          	sw	x15,40(x8)
+  a4:	                   14000793          	addi	x15,x0,320
+  a8:	                   02f42623          	sw	x15,44(x8)
+     ###     *(graph++) = 0x1282;      *(graph++) = 0xD00;
+  ac:	                   000017b7          	lui	x15,0x1
+  b0:	                   28278713          	addi	x14,x15,642 # 1282 <__flash_size+0xa82>
+  b4:	                   d0078793          	addi	x15,x15,-768
+  b8:	                   02f42a23          	sw	x15,52(x8)
+     ###     *(graph++) = 0x200;       *(graph++) = 0x200;
+  bc:	                   20000793          	addi	x15,x0,512
+  c0:	                   02f42c23          	sw	x15,56(x8)
+  c4:	                   02f42e23          	sw	x15,60(x8)
+     ###     *(graph++) = 0x82100;     *(graph++) = 0x5000;
+  c8:	                   000827b7          	lui	x15,0x82
+  cc:	                   10078793          	addi	x15,x15,256 # 82100 <__flash_size+0x81900>
+  d0:	                   04f42023          	sw	x15,64(x8)
+  d4:	                   000057b7          	lui	x15,0x5
+  d8:	                   04f42223          	sw	x15,68(x8)
+     ###     *(graph++) = 0x1A000;     *(graph++) = 0x4000;
+  dc:	                   0001a7b7          	lui	x15,0x1a
+  e0:	                   04f42423          	sw	x15,72(x8)
+  e4:	                   000047b7          	lui	x15,0x4
+  e8:	                   04f42623          	sw	x15,76(x8)
+     ###     *(graph++) = 0x64000;     *(graph++) = 0x10000;
+  ec:	                   000647b7          	lui	x15,0x64
+  f0:	                   04f42823          	sw	x15,80(x8)
+  f4:	                   000107b7          	lui	x15,0x10
+  f8:	                   04f42a23          	sw	x15,84(x8)
+     ###     *(graph++) = 0x90000;     *(graph++) = 0x141000;
+  fc:	                   000907b7          	lui	x15,0x90
+ 100:	                   04f42c23          	sw	x15,88(x8)
+ 104:	                   001417b7          	lui	x15,0x141
+ 108:	                   04f42e23          	sw	x15,92(x8)
+     ###     *(graph++) = 0x21280000;  *(graph++) = 0xC00000;
+ 10c:	                   212807b7          	lui	x15,0x21280
+ 110:	                   06f42023          	sw	x15,96(x8)
+ 114:	                   00c007b7          	lui	x15,0xc00
+ 118:	                   06f42223          	sw	x15,100(x8)
+     ###     *(graph++) = 0x200000;    *(graph++) = 0x200000;
+ 11c:	                   002007b7          	lui	x15,0x200
+ 120:	                   06f42423          	sw	x15,104(x8)
+ 124:	                   06f42623          	sw	x15,108(x8)
+     ###     *(graph++) = 0x2100000;   *(graph++) = 0x5000000;
+ 128:	                   021007b7          	lui	x15,0x2100
+ 12c:	                   06f42823          	sw	x15,112(x8)
+ 130:	                   050007b7          	lui	x15,0x5000
+ 134:	                   06f42a23          	sw	x15,116(x8)
+     ###     *(graph++) = 0x1A000000;  *(graph++) = 0x4000000;
+ 138:	                   1a0007b7          	lui	x15,0x1a000
+ 13c:	                   06f42c23          	sw	x15,120(x8)
+ 140:	                   040007b7          	lui	x15,0x4000
+ 144:	                   06f42e23          	sw	x15,124(x8)
+     ###     *(graph++) = 0x24000008;  *(graph++) = 0x10100002;
+ 148:	                   240007b7          	lui	x15,0x24000
+ 14c:	                   00878793          	addi	x15,x15,8 # 24000008 <__global_pointer$+0x21fff808>
+ 150:	                   08f42023          	sw	x15,128(x8)
+ 154:	                   101007b7          	lui	x15,0x10100
+ 158:	                   00278793          	addi	x15,x15,2 # 10100002 <__global_pointer$+0xe0ff802>
+ 15c:	                   08f42223          	sw	x15,132(x8)
+     ###     *(graph++) = 0x1282;      *(graph++) = 0xD00;
+ 160:	                   02e42823          	sw	x14,48(x8)
+     ### 
+     ###     // Dijkstra
+     ###     *sptSet = 0x0; 
+     ### 
+     ###     for (int i = 0; i < V; i++) {
+     ###         *(dist + i) = UCHAR_MAX;
+ 164:	                   01e00613          	addi	x12,x0,30
+ 168:	                   0ff00593          	addi	x11,x0,255
+ 16c:	                   09040513          	addi	x10,x8,144
+     ###     *sptSet = 0x0; 
+ 170:	                   08042423          	sw	x0,136(x8)
+     ###         *(dist + i) = UCHAR_MAX;
+ 174:	                   1dc000ef          	jal	x1,350 <memset>
+     ###         *(parent + i) = UCHAR_MAX;
+ 178:	                   0ff00593          	addi	x11,x0,255
+ 17c:	                   0b040513          	addi	x10,x8,176
+ 180:	                   01e00613          	addi	x12,x0,30
+ 184:	                   1cc000ef          	jal	x1,350 <memset>
+     ###     }
+     ### 
+     ###     //NODE_POINT = START_POINT;
+     ###     *(dist + START_POINT) = 0;
+ 188:	                   00044783          	lbu	x15,0(x8)
+ 18c:	                   01d00593          	addi	x11,x0,29
+     ### 
+     ###     
+     ###     for(int count = 0; count < V - 1; count++){
+     ###         *min = UCHAR_MAX;
+ 190:	                   fff00813          	addi	x16,x0,-1
+     ###     *(dist + START_POINT) = 0;
+ 194:	                   0ff7f793          	andi	x15,x15,255
+ 198:	                   00f40433          	add	x8,x8,x15
+     ###         *min = UCHAR_MAX;
+ 19c:	                   020007b7          	lui	x15,0x2000
+     ###     *(dist + START_POINT) = 0;
+ 1a0:	                   08040823          	sb	x0,144(x8)
+     ###         for (int v = 0; v < V; v++) {
+ 1a4:	                   01e00513          	addi	x10,x0,30
+     ###         *p |= 1 << bit;
+ 1a8:	                   00100893          	addi	x17,x0,1
+ 1ac:	                   09078313          	addi	x6,x15,144 # 2000090 <__bss_end+0x90>
+     ###         return (*p >> bit) & 0x1;
+ 1b0:	         /-------> 0887a603          	lw	x12,136(x15)
+     ###         *min = UCHAR_MAX;
+ 1b4:	         |         090786a3          	sb	x16,141(x15)
+     ###         for (int v = 0; v < V; v++) {
+ 1b8:	         |         00000713          	addi	x14,x0,0
+     ###         return (*p >> bit) & 0x1;
+ 1bc:	         |  /----> 00e656b3          	srl	x13,x12,x14
+     ###             if (!get_bit(sptSet, v) && (*(dist + v) < *min)) {
+ 1c0:	         |  |      0016f693          	andi	x13,x13,1
+ 1c4:	         |  |  /-- 00069e63          	bne	x13,x0,1e0 <__ram_size+0xe0>
+ 1c8:	         |  |  |   00e786b3          	add	x13,x15,x14
+ 1cc:	         |  |  |   0906c683          	lbu	x13,144(x13)
+ 1d0:	         |  |  |   08d7ce03          	lbu	x28,141(x15)
+ 1d4:	         |  |  +-- 01c6f663          	bgeu	x13,x28,1e0 <__ram_size+0xe0>
+     ###                 *min = *(dist + v);
+ 1d8:	         |  |  |   08d786a3          	sb	x13,141(x15)
+     ###                 *min_index = v;
+ 1dc:	         |  |  |   08e78623          	sb	x14,140(x15)
+     ###         for (int v = 0; v < V; v++) {
+ 1e0:	         |  |  \-> 00170713          	addi	x14,x14,1
+ 1e4:	         |  \----- fca71ce3          	bne	x14,x10,1bc <__ram_size+0xbc>
+     ###         *p |= 1 << bit;
+ 1e8:	         |         08c7c703          	lbu	x14,140(x15)
+ 1ec:	         |         0887a683          	lw	x13,136(x15)
+ 1f0:	         |         00e89733          	sll	x14,x17,x14
+ 1f4:	         |         00d76733          	or	x14,x14,x13
+ 1f8:	         |         08e7a423          	sw	x14,136(x15)
+     ###             }
+     ###         }
+     ###         
+     ###         set(sptSet, *min_index);
+     ### 
+     ###         for (int v = 0; v < V; v++) {
+ 1fc:	         |         00000713          	addi	x14,x0,0
+     ###         return (*p >> bit) & 0x1;
+ 200:	         |  /----> 0887a683          	lw	x13,136(x15)
+ 204:	         |  |      00e6d6b3          	srl	x13,x13,x14
+     ###             if (!get_bit(sptSet, v) && get_bit(graph + *min_index , v) && *(dist + *min_index) != INT_MAX && (*(dist + *min_index) + get_bit(graph + *min_index , v) < *(dist + v))) {
+ 208:	         |  |      0016f693          	andi	x13,x13,1
+ 20c:	         |  |  /-- 04069463          	bne	x13,x0,254 <__ram_size+0x154>
+ 210:	         |  |  |   08c7c603          	lbu	x12,140(x15)
+     ###         return (*p >> bit) & 0x1;
+ 214:	         |  |  |   00261693          	slli	x13,x12,0x2
+ 218:	         |  |  |   00d786b3          	add	x13,x15,x13
+ 21c:	         |  |  |   0106a683          	lw	x13,16(x13)
+ 220:	         |  |  |   00e6d6b3          	srl	x13,x13,x14
+     ###             if (!get_bit(sptSet, v) && get_bit(graph + *min_index , v) && *(dist + *min_index) != INT_MAX && (*(dist + *min_index) + get_bit(graph + *min_index , v) < *(dist + v))) {
+ 224:	         |  |  |   0016f693          	andi	x13,x13,1
+ 228:	         |  |  +-- 02068663          	beq	x13,x0,254 <__ram_size+0x154>
+ 22c:	         |  |  |   00c78633          	add	x12,x15,x12
+ 230:	         |  |  |   09064683          	lbu	x13,144(x12)
+     ###         return (*p >> bit) & 0x1;
+ 234:	         |  |  |   00670633          	add	x12,x14,x6
+     ###             if (!get_bit(sptSet, v) && get_bit(graph + *min_index , v) && *(dist + *min_index) != INT_MAX && (*(dist + *min_index) + get_bit(graph + *min_index , v) < *(dist + v))) {
+ 238:	         |  |  |   00064e03          	lbu	x28,0(x12)
+ 23c:	         |  |  |   00168693          	addi	x13,x13,1
+ 240:	         |  |  +-- 01c6da63          	bge	x13,x28,254 <__ram_size+0x154>
+     ###                 *(dist + v) = *(dist + *min_index) + get_bit(graph + *min_index , v);	// Updating the distance of node v;
+ 244:	         |  |  |   00d60023          	sb	x13,0(x12)
+     ###                 *(parent + v) = *min_index;							// Setting the parent node of v as u;
+ 248:	         |  |  |   08c7c603          	lbu	x12,140(x15)
+ 24c:	         |  |  |   00e786b3          	add	x13,x15,x14
+ 250:	         |  |  |   0ac68823          	sb	x12,176(x13)
+     ###         for (int v = 0; v < V; v++) {
+ 254:	         |  |  \-> 00170713          	addi	x14,x14,1
+ 258:	         |  \----- faa714e3          	bne	x14,x10,200 <__ram_size+0x100>
+     ###     for(int count = 0; count < V - 1; count++){
+ 25c:	         |         fff58593          	addi	x11,x11,-1
+ 260:	         \-------- f40598e3          	bne	x11,x0,1b0 <__ram_size+0xb0>
+     ###             }
+     ###         }
+     ###     }
+     ### 
+     ###     idx = retracePath(parent, END_POINT, path_planned);
+ 264:	                   020007b7          	lui	x15,0x2000
+ 268:	                   0047c703          	lbu	x14,4(x15) # 2000004 <__bss_end+0x4>
+     ###         while (*(parent + j) != 0xFF) {
+ 26c:	                   020006b7          	lui	x13,0x2000
+     ###         uint8_t val = 1;
+ 270:	                   00100793          	addi	x15,x0,1
+     ###     idx = retracePath(parent, END_POINT, path_planned);
+ 274:	                   0ff77713          	andi	x14,x14,255
+     ###         while (*(parent + j) != 0xFF) {
+ 278:	                   0ff00593          	addi	x11,x0,255
+ 27c:	/----------------> 00e68633          	add	x12,x13,x14
+ 280:	|                  0b064603          	lbu	x12,176(x12)
+ 284:	|           /----- 04b61c63          	bne	x12,x11,2dc <t1b_path_planner.c.1624a433+0x6d>
+     ###     *path_planned = START_POINT;
+ 288:	|           |      0006c703          	lbu	x14,0(x13) # 2000000 <__bss_end>
+     ###         for(int i = 1; i <= idx/2; i++){
+ 28c:	|           |      0017d513          	srli	x10,x15,0x1
+ 290:	|           |      00100613          	addi	x12,x0,1
+     ###     *path_planned = START_POINT;
+ 294:	|           |      00e10023          	sb	x14,0(x2)
+     ###     reverse_path(path_planned, idx);
+ 298:	|           |      00010713          	addi	x14,x2,0
+ 29c:	|           |      00f706b3          	add	x13,x14,x15
+ 2a0:	|           |      00070593          	addi	x11,x14,0
+     ###         for(int i = 1; i <= idx/2; i++){
+ 2a4:	|     /-----|----> 00170713          	addi	x14,x14,1
+ 2a8:	|     |     |      fff68693          	addi	x13,x13,-1
+ 2ac:	|     |     |  /-- 04c55663          	bge	x10,x12,2f8 <t1b_path_planner.c.1624a433+0x89>
+     ###     //NODE_POINT = idx;
+     ###     // ##############################################
+     ### 
+     ###     // the node values are written into data memory sequentially.
+     ###     for (int i = 0; i < idx; ++i) {
+ 2b0:	|     |     |  |   00000713          	addi	x14,x0,0
+     ###         NODE_POINT = path_planned[i];
+ 2b4:	|     |     |  |   020006b7          	lui	x13,0x2000
+     ###     for (int i = 0; i < idx; ++i) {
+ 2b8:	|  /--|--/--|--|-X 04f74c63          	blt	x14,x15,310 <t1b_path_planner.c.1624a433+0xa1>
+     ###     }
+     ###     // Path Planning Computation Done Flag
+     ###     CPU_DONE = 1;
+ 2bc:	|  |  |  |  |  |   020007b7          	lui	x15,0x2000
+ 2c0:	|  |  |  |  |  |   00100713          	addi	x14,x0,1
+ 2c4:	|  |  |  |  |  |   00e78623          	sb	x14,12(x15) # 200000c <__bss_end+0xc>
+     ###         _put_str("################################\n");
+     ### 
+     ###     #endif
+     ### 
+     ###     return 0;
+     ### }
+ 2c8:	|  |  |  |  |  |   02c12083          	lw	x1,44(x2)
+ 2cc:	|  |  |  |  |  |   02812403          	lw	x8,40(x2)
+ 2d0:	|  |  |  |  |  |   00000513          	addi	x10,x0,0
+ 2d4:	|  |  |  |  |  |   03010113          	addi	x2,x2,48
+ 2d8:	|  |  |  |  |  |   00008067          	jalr	x0,0(x1)
+     ###             *(path_planned + val) = j;
+ 2dc:	|  |  |  |  \--|-> 02010513          	addi	x10,x2,32
+ 2e0:	|  |  |  |     |   00f50533          	add	x10,x10,x15
+     ###             val++;
+ 2e4:	|  |  |  |     |   00178793          	addi	x15,x15,1
+     ###             *(path_planned + val) = j;
+ 2e8:	|  |  |  |     |   fee50023          	sb	x14,-32(x10)
+     ###             val++;
+ 2ec:	|  |  |  |     |   0ff7f793          	andi	x15,x15,255
+ 2f0:	|  |  |  |     |   00060713          	addi	x14,x12,0
+ 2f4:	\--|--|--|-----|-- f89ff06f          	jal	x0,27c <t1b_path_planner.c.1624a433+0xd>
+     ###             *(path + i) = *(path + idx - i);
+ 2f8:	   |  |  |     \-> 0006c883          	lbu	x17,0(x13) # 2000000 <__bss_end>
+     ###             temp = *(path + i);
+ 2fc:	   |  |  |         00074803          	lbu	x16,0(x14)
+     ###         for(int i = 1; i <= idx/2; i++){
+ 300:	   |  |  |         00160613          	addi	x12,x12,1
+     ###             *(path + i) = *(path + idx - i);
+ 304:	   |  |  |         01170023          	sb	x17,0(x14)
+     ###             *(path + idx - i) = temp;
+ 308:	   |  |  |         01068023          	sb	x16,0(x13)
+     ###         for(int i = 1; i <= idx/2; i++){
+ 30c:	   |  \--|-------- f99ff06f          	jal	x0,2a4 <t1b_path_planner.c.1624a433+0x35>
+     ###         NODE_POINT = path_planned[i];
+ 310:	   |     \-------> 00e58633          	add	x12,x11,x14
+ 314:	   |               00064603          	lbu	x12,0(x12)
+     ###     for (int i = 0; i < idx; ++i) {
+ 318:	   |               00170713          	addi	x14,x14,1
+     ###         NODE_POINT = path_planned[i];
+ 31c:	   |               00c68423          	sb	x12,8(x13)
+     ###     for (int i = 0; i < idx; ++i) {
+ 320:	   \-------------- f99ff06f          	jal	x0,2b8 <t1b_path_planner.c.1624a433+0x49>
+
+00000324 <_set_tls>:
+ 324:	00050213          	addi	x4,x10,0
+ 328:	00008067          	jalr	x0,0(x1)
+
+0000032c <memcpy>:
+ 32c:	       00050313          	addi	x6,x10,0
+ 330:	/----- 00060e63          	beq	x12,x0,34c <memcpy+0x20>
+ 334:	|  /-> 00058383          	lb	x7,0(x11)
+ 338:	|  |   00730023          	sb	x7,0(x6)
+ 33c:	|  |   fff60613          	addi	x12,x12,-1
+ 340:	|  |   00130313          	addi	x6,x6,1
+ 344:	|  |   00158593          	addi	x11,x11,1
+ 348:	|  \-- fe0616e3          	bne	x12,x0,334 <memcpy+0x8>
+ 34c:	\----> 00008067          	jalr	x0,0(x1)
+
+00000350 <memset>:
+ 350:	       00050313          	addi	x6,x10,0
+ 354:	/----- 00060a63          	beq	x12,x0,368 <memset+0x18>
+ 358:	|  /-> 00b30023          	sb	x11,0(x6)
+ 35c:	|  |   fff60613          	addi	x12,x12,-1
+ 360:	|  |   00130313          	addi	x6,x6,1
+ 364:	|  \-- fe061ae3          	bne	x12,x0,358 <memset+0x8>
+ 368:	\----> 00008067          	jalr	x0,0(x1)
+
+0000036c <__text_end>:
+ 36c:	0000                	c.unimp
+	...
