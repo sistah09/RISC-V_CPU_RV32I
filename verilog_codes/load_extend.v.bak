@@ -11,7 +11,7 @@ module load_extend (
 always @(*) begin
     case (sel)
     3'b001: data = {{24{y[7]}}, y[7:0]}; //lb-s
-    3'b010: data = {{16{y[15]}}, y[15:0]}; //lh-s
+    3'b010: data = {{16{y[15]}}, y[15:0]}; //;h-s
     3'b000: data = y; //lw
     3'b011: data = {24'b0, y[7:0]}; //lb-u
     3'b100: data = {16'b0, y[15:0]}; //lh-u

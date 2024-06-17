@@ -1,7 +1,7 @@
 
 // store_extend.v - logic for extending the data and addr for storing word, half and byte
 
-module store_extend (
+module store_extend_rev2 (
     input   [31:0] y,
     input   [1:0] sel,
     output reg [31:0] data
