@@ -17,7 +17,7 @@ instr_mem imem (PC, Instr);
 data_mem dmem (clk, MemWrite, DataAdr, WriteData, ReadData);
 
 // output assignments
-assign MemWrite = (Ext_MemWrite && reset) ? 1 : MemWrite_rv32;
+assign MemWrite = (Ext_MemWrite && reset) ? 1'b1 : MemWrite_rv32;
 assign WriteData = (Ext_MemWrite && reset) ? Ext_WriteData : WriteData_rv32;
 assign DataAdr = (reset) ? Ext_DataAdr : DataAdr_rv32;
 
